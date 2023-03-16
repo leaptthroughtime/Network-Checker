@@ -7,6 +7,7 @@ if loopback_ping.returncode == 0:
     print("Loopback ping successful!")
 else:
     print("Loopback ping failed")
+    print("Something wrong on local device")
 
 # Run the ipconfig command and capture its output
 output = subprocess.check_output("ipconfig").decode()
@@ -36,6 +37,7 @@ if ipv4_ping.returncode == 0:
         print("Could not find round trip time in output")
 else:
     print(f"Ping to {ip_address} failed")
+    print("Check router/modem")
 
 # Ping Google's DNS server (8.8.8.8) to make sure we have internet connectivity
 google_ping = subprocess.run(["ping", "-n", "1", "8.8.8.8"], capture_output=True)
